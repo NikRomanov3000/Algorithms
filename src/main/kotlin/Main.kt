@@ -1,18 +1,25 @@
+import algorithms.model.ListNode
 import java.util.*
+import kotlin.collections.HashSet
+import kotlin.random.Random
 
 fun main(args: Array<String>) {
-    val list1 = LinkedList<Int>()
-    list1.addAll(listOf(1, 4, 5))
-    val list2 = LinkedList<Int>()
-    list2.addAll(listOf(1, 3, 4))
-    val list3 = LinkedList<Int>()
-    list3.addAll(listOf(2, 6))
-    val emptyList = LinkedList<Int>()
+    var input = ListNode.createList(1, 2, 3, 4, 5, 6, 7, 8, 9)
 
-    //emptyArray<LinkedList<Int>>()
-    val input = arrayOf(list1, list2, list3)
+    var prev: ListNode? = null
+    var cur = input
+    var next: ListNode?
+    //Такой цикл используем для обхода односвязного листа
+    while (cur != null) {
+        //записываем следующий элемент в next
+        next = cur.next
+        //ссылке следующего элемента присваиваем значение предыдущего
+        cur.next = prev
+        //присваиваем предыдущему элементу значению текущего элемента
+        prev = cur
+        //присваиваем текущему элементу значение предыдущего
+        cur = next
+    }
 
-    //val result = mergeKLists(input)
-
-    println("Program arguments: ${args.joinToString()}")
+    println(prev.toString())
 }
