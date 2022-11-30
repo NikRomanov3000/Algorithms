@@ -10,18 +10,6 @@ import java.util.*
  *  @see https://leetcode.com/problems/merge-k-sorted-lists/
  */
 class ArrayOfKLinkedList {
-    private fun addToFirstList(firstList: LinkedList<Int>, item: Int) {
-        for (i in 0 until firstList.size) {
-            if (item > firstList.last) {
-                firstList.add(firstList.size, item)
-                break
-            } else if (item < firstList[i]) {
-                firstList.add(i, item)
-                break
-            }
-        }
-    }
-
     fun mergeKLists(lists: Array<LinkedList<Int>>): LinkedList<Int> {
         return if (lists.isEmpty()) {
             LinkedList<Int>()
@@ -33,6 +21,18 @@ class ArrayOfKLinkedList {
                 }
             }
             firstList
+        }
+    }
+
+    private fun addToFirstList(firstList: LinkedList<Int>, item: Int) {
+        for (i in 0 until firstList.size) {
+            if (item > firstList.last) {
+                firstList.add(firstList.size, item)
+                break
+            } else if (item < firstList[i]) {
+                firstList.add(i, item)
+                break
+            }
         }
     }
 }

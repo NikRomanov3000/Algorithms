@@ -44,7 +44,6 @@ class AddTwoNumbers {
             }
 
             if (carryDigit > 0) {
-                // temp.next = new ListNode(carry);
                 temp!!.next = ListNode(carryDigit)
             }
 
